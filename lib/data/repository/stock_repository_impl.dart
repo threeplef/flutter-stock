@@ -2,7 +2,7 @@ import '../../data/mapper/company_mapper.dart';
 import '../../domain/model/company_listing.dart';
 import '../../domain/repository/stock_repository.dart';
 import '../../util/result.dart';
-import '../csv/company_listing_parser.dart';
+import '../csv/company_listings_parser.dart';
 import '../source/local/stock_dao.dart';
 import '../source/remote/stock_api.dart';
 
