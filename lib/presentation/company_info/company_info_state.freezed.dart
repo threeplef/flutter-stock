@@ -22,6 +22,7 @@ CompanyInfoState _$CompanyInfoStateFromJson(Map<String, dynamic> json) {
 mixin _$CompanyInfoState {
   CompanyInfo? get companyInfo => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $CompanyInfoStateCopyWith<$Res> {
   factory $CompanyInfoStateCopyWith(
           CompanyInfoState value, $Res Function(CompanyInfoState) then) =
       _$CompanyInfoStateCopyWithImpl<$Res>;
-  $Res call({CompanyInfo? companyInfo, bool isLoading});
+  $Res call({CompanyInfo? companyInfo, bool isLoading, String? errorMessage});
 
   $CompanyInfoCopyWith<$Res>? get companyInfo;
 }
@@ -52,6 +53,7 @@ class _$CompanyInfoStateCopyWithImpl<$Res>
   $Res call({
     Object? companyInfo = freezed,
     Object? isLoading = freezed,
+    Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
       companyInfo: companyInfo == freezed
@@ -62,6 +64,10 @@ class _$CompanyInfoStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: errorMessage == freezed
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
@@ -84,7 +90,7 @@ abstract class _$$_CompanyInfoStateCopyWith<$Res>
           _$_CompanyInfoState value, $Res Function(_$_CompanyInfoState) then) =
       __$$_CompanyInfoStateCopyWithImpl<$Res>;
   @override
-  $Res call({CompanyInfo? companyInfo, bool isLoading});
+  $Res call({CompanyInfo? companyInfo, bool isLoading, String? errorMessage});
 
   @override
   $CompanyInfoCopyWith<$Res>? get companyInfo;
@@ -105,6 +111,7 @@ class __$$_CompanyInfoStateCopyWithImpl<$Res>
   $Res call({
     Object? companyInfo = freezed,
     Object? isLoading = freezed,
+    Object? errorMessage = freezed,
   }) {
     return _then(_$_CompanyInfoState(
       companyInfo: companyInfo == freezed
@@ -115,6 +122,10 @@ class __$$_CompanyInfoStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: errorMessage == freezed
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -122,7 +133,8 @@ class __$$_CompanyInfoStateCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CompanyInfoState implements _CompanyInfoState {
-  const _$_CompanyInfoState({this.companyInfo, this.isLoading = false});
+  const _$_CompanyInfoState(
+      {this.companyInfo, this.isLoading = false, this.errorMessage});
 
   factory _$_CompanyInfoState.fromJson(Map<String, dynamic> json) =>
       _$$_CompanyInfoStateFromJson(json);
@@ -132,10 +144,12 @@ class _$_CompanyInfoState implements _CompanyInfoState {
   @override
   @JsonKey()
   final bool isLoading;
+  @override
+  final String? errorMessage;
 
   @override
   String toString() {
-    return 'CompanyInfoState(companyInfo: $companyInfo, isLoading: $isLoading)';
+    return 'CompanyInfoState(companyInfo: $companyInfo, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
@@ -145,7 +159,9 @@ class _$_CompanyInfoState implements _CompanyInfoState {
             other is _$_CompanyInfoState &&
             const DeepCollectionEquality()
                 .equals(other.companyInfo, companyInfo) &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading));
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.errorMessage, errorMessage));
   }
 
   @JsonKey(ignore: true)
@@ -153,7 +169,8 @@ class _$_CompanyInfoState implements _CompanyInfoState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(companyInfo),
-      const DeepCollectionEquality().hash(isLoading));
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(errorMessage));
 
   @JsonKey(ignore: true)
   @override
@@ -171,7 +188,8 @@ class _$_CompanyInfoState implements _CompanyInfoState {
 abstract class _CompanyInfoState implements CompanyInfoState {
   const factory _CompanyInfoState(
       {final CompanyInfo? companyInfo,
-      final bool isLoading}) = _$_CompanyInfoState;
+      final bool isLoading,
+      final String? errorMessage}) = _$_CompanyInfoState;
 
   factory _CompanyInfoState.fromJson(Map<String, dynamic> json) =
       _$_CompanyInfoState.fromJson;
@@ -180,6 +198,8 @@ abstract class _CompanyInfoState implements CompanyInfoState {
   CompanyInfo? get companyInfo;
   @override
   bool get isLoading;
+  @override
+  String? get errorMessage;
   @override
   @JsonKey(ignore: true)
   _$$_CompanyInfoStateCopyWith<_$_CompanyInfoState> get copyWith =>

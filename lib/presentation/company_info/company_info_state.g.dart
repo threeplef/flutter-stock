@@ -12,10 +12,12 @@ _$_CompanyInfoState _$$_CompanyInfoStateFromJson(Map<String, dynamic> json) =>
           ? null
           : CompanyInfo.fromJson(json['companyInfo'] as Map<String, dynamic>),
       isLoading: json['isLoading'] as bool? ?? false,
+      errorMessage: json['errorMessage'] as String?,
     );
 
 Map<String, dynamic> _$$_CompanyInfoStateToJson(_$_CompanyInfoState instance) =>
     <String, dynamic>{
       'companyInfo': instance.companyInfo,
       'isLoading': instance.isLoading,
+      'errorMessage': instance.errorMessage,
     };
