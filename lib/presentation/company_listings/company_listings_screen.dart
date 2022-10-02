@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'company_listings_action.dart';
 import 'company_listings_view_model.dart';
 
 class CompanyListingsScreen extends StatelessWidget {
@@ -17,6 +18,10 @@ class CompanyListingsScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
+                onChanged: (query) {
+                  viewModel.onAction(
+                      CompanyListingsAction.onSearchQueryChange(query));
+                },
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -40,7 +45,9 @@ class CompanyListingsScreen extends StatelessWidget {
             ),
             Expanded(
               child: RefreshIndicator(
-                onRefresh: () async {},
+                onRefresh: () async {
+                  viewModel.onAction(const CompanyListingsAction.refresh());
+                },
                 child: ListView.builder(
                   itemCount: state.companies.length,
                   itemBuilder: (context, index) {
