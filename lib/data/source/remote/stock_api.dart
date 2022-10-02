@@ -6,7 +6,7 @@ import 'dto/company_info_dto.dart';
 
 class StockApi {
   static const baseUrl = 'https://www.alphavantage.co/';
-  static const apiKey = '79V16QA8ZQDPFR16';
+  static const apiKey = 'T4RJ6LXYUECGJZSE';
 
   final http.Client _client;
 
@@ -25,5 +25,13 @@ class StockApi {
         '$baseUrl/query?function=OVERVIEW&symbol=$symbol&apikey=$apiKey'));
 
     return CompanyInfoDto.fromJson(jsonDecode(response.body));
+  }
+
+  Future<http.Response> getIntradayInfo({
+    required String symbol,
+    String apiKey = apiKey,
+  }) async {
+    return await _client.get(Uri.parse(
+        '$baseUrl/query?function=TIME_SERIES_INTRADAY&symbol=$symbol&interval=60min&apikey=$apiKey&datatype=csv'));
   }
 }
