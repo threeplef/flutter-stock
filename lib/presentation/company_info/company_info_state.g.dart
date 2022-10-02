@@ -1,0 +1,21 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'company_info_state.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_CompanyInfoState _$$_CompanyInfoStateFromJson(Map<String, dynamic> json) =>
+    _$_CompanyInfoState(
+      companyInfo: json['companyInfo'] == null
+          ? null
+          : CompanyInfo.fromJson(json['companyInfo'] as Map<String, dynamic>),
+      isLoading: json['isLoading'] as bool? ?? false,
+    );
+
+Map<String, dynamic> _$$_CompanyInfoStateToJson(_$_CompanyInfoState instance) =>
+    <String, dynamic>{
+      'companyInfo': instance.companyInfo,
+      'isLoading': instance.isLoading,
+    };
