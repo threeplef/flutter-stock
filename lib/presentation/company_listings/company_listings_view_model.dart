@@ -48,7 +48,7 @@ class CompanyListingsViewModel with ChangeNotifier {
         );
       },
       error: (e) {
-        print('리모트 에러 : ' + e.toString());
+        print('리모트 에러 : $e');
       },
     );
 
