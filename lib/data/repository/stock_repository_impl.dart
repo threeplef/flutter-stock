@@ -26,8 +26,13 @@ class StockRepositoryImpl implements StockRepository {
     final shouldJustLoadFromCache = !isDbEmpty && !fetchFromRemote;
 
     if (shouldJustLoadFromCache) {
-      return Result.success(
-          localListings.map((e) => e.toCompanyListing()).toList());
+      return Result.success(localListings
+          .where((element) =>
+              element.symbol != null &&
+              element.name != null &&
+              element.exchange != null)
+          .map((e) => e.toCompanyListing())
+          .toList());
     }
 
     try {
